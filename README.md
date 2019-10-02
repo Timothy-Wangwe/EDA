@@ -9,5 +9,7 @@ We will do the following:<br>
 </ol>
 
 # <a href = "">Data Preparation</a>
+The essence of Data Preparation is getting our raw data sets ready for exploration and finally visualization.<br>
+We first begin by selecting only the columns we will need. This helps to reduce the load of useless(contexually) data we have.<br>
 # <a href = "">Summaries and Distribution</a>
 # <a href = "">Visualizaion<a/>
