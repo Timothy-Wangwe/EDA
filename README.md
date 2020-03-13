@@ -1,5 +1,5 @@
 # Expoloratory-Data-Analysis-Trial-2
-In this repository, I'm going to walk through (with you on) the basics of <b>Eploratory Data Analysis.</b> We will however be using Python (not R).<br>
+In this repository, I'm going to walk through (with you on) the basics of <b>Exploratory Data Analysis.</b> We will however be using Python (not R).<br>
 Together we will expolre all the possible complexities of Data. We will explore a Dataset and try to make as much sense as possible from it.<br>
 We will do the following:<br>
 <ol>
