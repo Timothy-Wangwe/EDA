@@ -1,47 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### Covid-19 Summary Statistics (Pie Charts)
-
-# ##### Import 3rd party libraries
-
-# In[1]:
-
-
+# Import 3rd party libraries
 import matplotlib.pyplot as plt
 import pandas as pd
 from datetime import datetime
-
-
-# ##### Set path to most current file
-# _File is set according to current date_
-
-# In[2]:
-
-
+# Find dataset/file path using current date
 file = datetime.now().strftime("%d-%b-%Y")
 path = f'Covid-19-Datasets/Covid-19-Api/Datasets/{file}.csv'
-
-
-# ##### Import the data
-
-# In[3]:
-
-
+# Catch error if file is not found while importing the dataset
 try:
     data = pd.read_csv(path, sep=',', index_col=0)
     data.head()
 except FileNotFoundError:
-    raise SystemExit(f'{path}\nFile in the above path does not exist.')
-
-
-# ##### Create plot as function
-# _Instantiate the pie plot as a function only to call it later on. This should <br>
-# help with **clean** code._
-
-# In[4]:
-
-
+    raise SystemExit(f'{path}\nFile in the above path does not exist.') # Stop execution at this point
+# Package pie plot as a function to call it later on
 def visualize(country, data):
     labels = [f'Total Deaths: {TotalDeaths}',
               f'Total Recoveries: {TotalRecoveries}',
@@ -77,15 +50,8 @@ def visualize(country, data):
                 transparent = True, 
                 bbox_inches = 'tight'
                )
-    plt.show()
-
-
-# ##### Prepare data and call function from above
-# _Shape the data to fit the **visualize** function before calling it at the end._
-
-# In[5]:
-
-
+    # plt.show()
+# Prepare data to fit in the function created above
 for count in range(data['Countries'].count()):
     country = data.iloc[count]
     Name = country[0]
@@ -97,7 +63,7 @@ for count in range(data['Countries'].count()):
     df = pd.DataFrame([TotalDeaths,TotalRecoveries, ActiveCases],
     index = ['Total Deaths', 'Total Recoveries', 'Active Cases'])
     
-    if df[0][0] != 0 or df[0][1] != 0 or df[0][2] != 0:
+    if df[0][0] != 0 or df[0][1] != 0 or df[0][2] != 0: # To avoid errors raised when values are null
         visualize(Name, df)
     else:
         print(f'''
@@ -108,10 +74,3 @@ for count in range(data['Countries'].count()):
         {TotalRecoveries} Total Recoveries;
         its Visualization can therefore not be generated!!! 
         ''')
-
-
-# In[ ]:
-
-
-
-
